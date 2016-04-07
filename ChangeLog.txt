@@ -1,0 +1,32 @@
+Ver 2.0
+	- Added WYSIWYG Editor
+	YouTube Video embedded in post is now automatically found as long as class remains ot-anchor
+	No longer dependant on specific classes for posts, as long as the post remains class "editable"
+	 Updated YouTube Video detection //and changed pc class to kg
+	
+Ver 1.0.4
+	*0x/1x edit may have different result from 2x edit*
+
+	- Combined the URL before and after format checker "for" statements
+	- Fixed YouTube start times leading to the wrong link by adding "pc" class
+	- Fixed #_hashtag_ becoming an italicized hashtag when it should just be italics
+	- Added non-button hashtags (#plaintext)
+	- Changed tmpLinks to <a.+?<\/a> instead of <a href.+?<\/a>
+	- Fixed +mentions and hashtags having space after
+	- Hashtag buttons now add space before it
+	- SavePreview now checks for tags at the contentscript and the <a> tags are removed at the popup instead of removing <button> tags
+	- Added debounce for resize and DOMSubtreeModified (does not debounce on dialog first open because the cursor is placed
+		at the start when a non-word character is entered)
+
+Ver 1.0.3
+	- Fixed formatting tag being placed inside of a non-word character by changing s5 and s5regex from [_*-] to [\W_*-]
+	- Fixed long delay when linking to youtube without a video id.
+
+Ver 1.0.2
+	- Fixed url with formatting tags at the end e.g _test google.com_ plus.google.com_
+		before it only worked with _google.com_
+
+Ver 1.0.1
+	- Fixed the space and the semi-colon before the URL by adding \s and ; to all URL regex
+	- Changed nbspRegex from /([^\s>;])&nbsp;([^\s<&])/g to /([^\s>;])&nbsp;([^\sa-z0-9<&])/gi
+		as pasted text would trigger this which would add an additional space
